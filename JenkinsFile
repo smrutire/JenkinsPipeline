@@ -13,7 +13,7 @@ pipeline {
         stage('Test') {
             steps {
             	
-                	echo 'Testing stage....and now I have completed testing'
+                	echo 'Compiled the code and no errors were encountered and moved to Testing stage....'
                 	sh 'mvn test'
                 
             }
@@ -21,6 +21,7 @@ pipeline {
     }
     post {
         always {
+            echo 'Post-Build Publishing test results and your test Results can be tracked'
             junit 'target/surefire-reports/*.xml'
         }
     }
