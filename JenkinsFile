@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-               
+                    echo 'A pipeline is a group of events or jobs which are interlinked with one another in a sequence. In this scenario the code is compiled, tested and test-results are published in a sequence.'
                 	echo 'Starting to build pipeline to display vowels of a sentence in upper case'
                 	sh 'mvn clean compile'
                  
