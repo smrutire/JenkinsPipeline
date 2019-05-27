@@ -5,8 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 withMaven(maven : 'Maven'){
-                	echo 'Starting to build pipeline'
-                	echo 'I'm in Building stage....'
+                	echo 'Starting to build pipeline to display vowels of a sentence in upper case'
                 	sh 'mvn clean compile'
                 } 
             }
@@ -14,7 +13,7 @@ pipeline {
         stage('Test') {
             steps {
             	withMaven(maven : 'Maven'){
-                	echo 'I've moved to Testing stage....and now I have completed testing'
+                	echo 'Testing stage....and now I have completed testing'
                 	sh 'mvn test'
                 }
             }
