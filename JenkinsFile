@@ -4,18 +4,18 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                withMaven(maven : 'Maven'){
+               
                 	echo 'Starting to build pipeline to display vowels of a sentence in upper case'
                 	sh 'mvn clean compile'
-                } 
+                 
             }
         }
         stage('Test') {
             steps {
-            	withMaven(maven : 'Maven'){
+            	
                 	echo 'Testing stage....and now I have completed testing'
                 	sh 'mvn test'
-                }
+                
             }
         }
     }
