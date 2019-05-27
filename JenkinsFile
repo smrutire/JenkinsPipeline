@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                withMaven(maven : 'Maven'){
+                	echo 'Starting to build pipeline'
+                	echo 'I'm in Building stage....'
+                	sh 'mvn clean compile'
+                } 
+            }
+        }
+        stage('Test') {
+            steps {
+            	withMaven(maven : 'Maven'){
+                	echo 'I've moved to Testing stage....and now I have completed testing'
+                	sh 'mvn test'
+                }
+            }
+        }
+    }
+    post {
+        always {
+            junit 'target/surefire-reports/*.xml'
+        }
+    }
+}
